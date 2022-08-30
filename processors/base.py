@@ -1,4 +1,4 @@
-from abc import ABCMeta
+from abc import ABCMeta, abstractmethod
 from typing import Any, Callable
 
 
@@ -17,6 +17,7 @@ class BaseProcessor(metaclass=ABCMeta):
             self.state = result
         return self.state
 
+    @abstractmethod
     def process(self, input_state: Any = None) -> Any:
         if input_state:
             self.state = input_state
