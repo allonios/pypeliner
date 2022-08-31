@@ -1,4 +1,4 @@
-from abc import ABCMeta
+from abc import ABCMeta, abstractmethod
 from typing import Any, Callable
 
 
@@ -7,7 +7,7 @@ class BaseProcessor(metaclass=ABCMeta):
         self.state = init_state
 
     def __call__(self, input_state: Any) -> Any:
-        result = self.process_state(input_state)
+        result = self.process(input_state)
         # if a value is provided by process_state we use that as the new
         # processed state.
         # the user might forget to store his latest processing results in
@@ -17,7 +17,8 @@ class BaseProcessor(metaclass=ABCMeta):
             self.state = result
         return self.state
 
-    def process_state(self, input_state: Any = None) -> Any:
+    @abstractmethod
+    def process(self, input_state: Any = None) -> Any:
         if input_state:
             self.state = input_state
         return self.state
@@ -28,5 +29,5 @@ class CallbackProcessor(BaseProcessor):
         super().__init__(init_state)
         self.callback = callback
 
-    def process_state(self, input_state: Any = None) -> Any:
-        return self.callback(super().process_state(input_state))
+    def process(self, input_state: Any = None) -> Any:
+        return self.callback(super().process(input_state))

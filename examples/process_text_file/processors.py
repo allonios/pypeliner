@@ -5,13 +5,13 @@ from processors.base import BaseProcessor
 
 
 class TitleWordsProcessor(BaseProcessor):
-    def process_state(self, input_state: Any = None) -> Any:
-        self.state = super().process_state(input_state)
+    def process(self, input_state: Any = None) -> Any:
+        self.state = super().process(input_state)
         return self.state.title()
 
 
 class RemoveStopWordsProcessor(BaseProcessor):
-    def process_state(self, input_state: Any = None) -> Any:
+    def process(self, input_state: Any = None) -> Any:
         stop_words = [
             "the",
             "to",
@@ -33,7 +33,7 @@ class RemoveStopWordsProcessor(BaseProcessor):
             "it",
             "an",
         ]
-        self.state = super().process_state(input_state)
+        self.state = super().process(input_state)
 
         for stop_word in stop_words:
             self.state = re.sub(rf"\W+{stop_word}\W+", " ", self.state)
@@ -42,6 +42,6 @@ class RemoveStopWordsProcessor(BaseProcessor):
 
 
 class RemoveNumbersProcessor(BaseProcessor):
-    def process_state(self, input_state: Any = None) -> Any:
-        self.state = super().process_state(input_state)
+    def process(self, input_state: Any = None) -> Any:
+        self.state = super().process(input_state)
         return re.sub(r"\d+", "", self.state)
