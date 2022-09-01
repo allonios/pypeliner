@@ -41,6 +41,7 @@ class RemoveStopWordsProcessor(BaseProcessor):
 
         for stop_word in stop_words:
             self.state = re.sub(rf"\W+{stop_word}\W+", " ", self.state)
+            self.state = re.sub(rf"\W+{stop_word.title()}\W+", " ", self.state)
 
         return self.state
 
