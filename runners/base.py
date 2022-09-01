@@ -1,5 +1,6 @@
 from typing import Any, List
 
+from processors.base import BaseProcessor
 from readers.base import BaseReader
 from utils.decorators import exec_timer
 
@@ -7,7 +8,7 @@ from utils.decorators import exec_timer
 class BaseRunner:
     def __init__(
         self,
-        processors: List,
+        processors: List[BaseProcessor],
         reader: BaseReader,
         initial_state: Any = None,
         verbose: bool = False,
