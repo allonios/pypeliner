@@ -1,4 +1,4 @@
 Filler text is text that shares some characteristics 777 of a real written text.
 but is random or otherwise generated.
-it may be used to display a sample of fonts,
+may be used to display a sample of fonts,
 generates text for testing, or to spoof an e-mail spam filter.
