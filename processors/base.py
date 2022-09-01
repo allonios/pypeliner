@@ -1,4 +1,5 @@
 from abc import ABCMeta, abstractmethod
+from types import NoneType
 from typing import Any, Callable
 
 
@@ -15,7 +16,7 @@ class BaseProcessor(metaclass=ABCMeta):
         # the user might forget to store his latest processing results in
         # self.state and just returns it directly,
         # so this should cover that case.
-        if result:
+        if not isinstance(result, NoneType):
             self.state = result
         return self.state
 
@@ -27,7 +28,7 @@ class BaseProcessor(metaclass=ABCMeta):
 
     @abstractmethod
     def process(self, input_state: Any = None) -> Any:
-        if input_state:
+        if not isinstance(input_state, NoneType):
             self.state = input_state
         return self.state
 
