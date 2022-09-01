@@ -3,6 +3,8 @@ from typing import Any, Callable
 
 
 class BaseProcessor(metaclass=ABCMeta):
+    PROCESSOR_NAME = ""
+
     def __init__(self, init_state: Any = None) -> None:
         self.state = init_state
 
@@ -16,6 +18,12 @@ class BaseProcessor(metaclass=ABCMeta):
         if result:
             self.state = result
         return self.state
+
+    def __str__(self) -> str:
+        if self.PROCESSOR_NAME:
+            return self.PROCESSOR_NAME
+        else:
+            return super().__str__()
 
     @abstractmethod
     def process(self, input_state: Any = None) -> Any:
@@ -31,3 +39,9 @@ class CallbackProcessor(BaseProcessor):
 
     def process(self, input_state: Any = None) -> Any:
         return self.callback(super().process(input_state))
+
+    def __str__(self) -> str:
+        if self.PROCESSOR_NAME:
+            return self.PROCESSOR_NAME
+        else:
+            return self.callback.__name__
