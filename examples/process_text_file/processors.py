@@ -5,12 +5,16 @@ from processors.base import BaseProcessor
 
 
 class TitleWordsProcessor(BaseProcessor):
+    PROCESSOR_NAME = "Title Words Processor"
+
     def process(self, input_state: Any = None) -> Any:
         self.state = super().process(input_state)
         return self.state.title()
 
 
 class RemoveStopWordsProcessor(BaseProcessor):
+    PROCESSOR_NAME = "Remove Stop Words Processor"
+
     def process(self, input_state: Any = None) -> Any:
         stop_words = [
             "the",
@@ -42,6 +46,8 @@ class RemoveStopWordsProcessor(BaseProcessor):
 
 
 class RemoveNumbersProcessor(BaseProcessor):
+    PROCESSOR_NAME = "Remove Numbers Processor"
+
     def process(self, input_state: Any = None) -> Any:
         self.state = super().process(input_state)
         return re.sub(r"\d+", "", self.state)
