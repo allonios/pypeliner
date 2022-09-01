@@ -12,7 +12,7 @@ def exec_timer(name: str = "", decimal_places: int = 3):
             else:
                 display_name = func.__name__
             print(
-                f"{display_name} Took"
+                f"{display_name} Took "
                 f"{(time() - start):.{str(decimal_places)}f} seconds"
             )
             return result
