@@ -1,9 +1,11 @@
-from readers.base import BaseReader
+from pipeliner.readers.base import BaseReader
 
 
 class FileLinesReader(BaseReader):
     """
     A reader used to read a file line by line using a generator.
+    Args:
+        file_path: file directory.
     """
 
     def __init__(self, file_path: str) -> None:

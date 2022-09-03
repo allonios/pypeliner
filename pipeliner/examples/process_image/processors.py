@@ -4,7 +4,7 @@ import cv2
 import numpy as np
 from numpy import ndarray
 
-from processors.base import BaseProcessor
+from pipeliner.processors.base import BaseProcessor
 
 
 class ScaleImageProcessor(BaseProcessor):

@@ -10,8 +10,10 @@ class BaseReader(metaclass=ABCMeta):
     @abstractmethod
     def read(self) -> Any:
         """
-        A abstract method that defines reading logic.
-        :return:
+        An abstract method that defines reading logic.
+
+        Returns:
+            data to be processed.
         """
         ...
 

@@ -6,15 +6,15 @@ from typing import Any, Callable
 class BaseProcessor(metaclass=ABCMeta):
     """
     Base class for processors.
+
+    Args:
+        init_state: initial state used by the processor,
+            usually used when using the processor on its own without a runner.
     """
 
     PROCESSOR_NAME = ""
 
     def __init__(self, init_state: Any = None) -> None:
-        """
-        :param init_state: initial state used by the processor, usually used when
-        using the processor on its own without a runner.
-        """
         self.state = init_state
 
     def __call__(self, input_state: Any) -> Any:
@@ -39,8 +39,12 @@ class BaseProcessor(metaclass=ABCMeta):
         """
         process method defines the processing operations for the current
         processor.
-        :param input_state: processor input state.
-        :return: processed state.
+
+        Args:
+            input_state: processor input state.
+
+        Returns:
+            processed state.
         """
         if not isinstance(input_state, NoneType):
             self.state = input_state
@@ -51,13 +55,13 @@ class CallbackProcessor(BaseProcessor):
     """
     Base class for processors that holds their logic in a parameterized
     callback.
+
+    Args:
+        callback: a callback with processing logic.
+        init_state: processor initial state.
     """
 
     def __init__(self, callback: Callable, init_state: Any = None) -> None:
-        """
-        :param callback: a callback with processing logic.
-        :param init_state:
-        """
         super().__init__(init_state)
         self.callback = callback
 
