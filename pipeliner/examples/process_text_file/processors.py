@@ -1,7 +1,7 @@
 import re
 from typing import Any
 
-from processors.base import BaseProcessor
+from pipeliner.processors.base import BaseProcessor
 
 
 class TitleWordsProcessor(BaseProcessor):

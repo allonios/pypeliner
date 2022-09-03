@@ -1,9 +1,12 @@
-from readers.base import BaseReader
+from pipeliner.readers.base import BaseReader
 
 
 class FileReader(BaseReader):
     """
     A reader used to read an entire file.
+
+    Args:
+        file_path: file directory.
     """
 
     def __init__(self, file_path: str) -> None:

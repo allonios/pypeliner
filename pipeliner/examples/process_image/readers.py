@@ -2,7 +2,7 @@ from typing import Any
 
 import cv2
 
-from readers.base import BaseReader
+from pipeliner.readers.base import BaseReader
 
 
 class ImageReader(BaseReader):
