@@ -2,6 +2,10 @@ from readers.base import BaseReader
 
 
 class FileLinesReader(BaseReader):
+    """
+    A reader used to read a file line by line using a generator.
+    """
+
     def __init__(self, file_path: str) -> None:
         self.file_path = file_path
 

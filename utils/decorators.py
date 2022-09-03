@@ -3,6 +3,15 @@ from typing import Callable
 
 
 def exec_timer(name: str = "", decimal_places: int = 3):
+    """
+    When a function is wrapped with this decorator, it will time the function
+    execution.
+    :param name: verbose function name, if not specified it will use the
+    function's __name__ magic attribute as a default value.
+    :param decimal_places: the number of decimal points for the measured time.
+    :return: same as the function return value.
+    """
+
     def dec_inner(func: Callable):
         def dec_inner_inner(*args, **kwargs):
             start = time()

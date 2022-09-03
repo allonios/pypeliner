@@ -2,6 +2,10 @@ from readers.base import BaseReader
 
 
 class FileReader(BaseReader):
+    """
+    A reader used to read an entire file.
+    """
+
     def __init__(self, file_path: str) -> None:
         self.file_path = file_path
 
