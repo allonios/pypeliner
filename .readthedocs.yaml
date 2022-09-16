@@ -6,3 +6,4 @@ build:
   jobs:
     post_checkout:
       - ls -la
+      - cd docs
