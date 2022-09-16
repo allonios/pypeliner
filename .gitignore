@@ -5,8 +5,10 @@ production.py
 # Packaging files:
 *.egg*
 
-# Sphinx docs:
-build
+# Sphinx stuff:
+docs/generated/
+docs/_build/
+docs/auto_examples/
 
 # Logs:
 *.log
