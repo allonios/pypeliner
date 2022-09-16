@@ -7,3 +7,4 @@ build:
     post_checkout:
       - ls -la
       - cd docs
+      - ls -la
