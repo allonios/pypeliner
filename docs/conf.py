@@ -17,7 +17,7 @@ copyright = "2022, Fareck Allony"
 author = "Fareck Allony"
 
 
-autodoc_mock_imports = ["cv2"]
+autodoc_mock_imports = ["cv2", "numpy"]
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
