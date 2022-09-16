@@ -15,6 +15,9 @@ project = "pipeliner"
 copyright = "2022, Fareck Allony"
 author = "Fareck Allony"
 
+
+autodoc_mock_imports = ["cv2"]
+
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
