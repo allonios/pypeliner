@@ -1,3 +1,7 @@
+"""
+Decorators module, contains exec_timer decorator.
+"""
+
 from time import time
 from typing import Callable
 

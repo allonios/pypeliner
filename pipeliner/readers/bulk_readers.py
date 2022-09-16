@@ -1,3 +1,8 @@
+"""
+Bulk readers module, defines readers for reading bulk data all at once,
+contains a file reader
+"""
+
 from pipeliner.readers.base import BaseReader
 
 

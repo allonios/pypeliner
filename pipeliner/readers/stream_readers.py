@@ -1,3 +1,8 @@
+"""
+Stream readers module, defines readers for reading data from streams, contains
+file lines reader.
+"""
+
 from pipeliner.readers.base import BaseReader
 
 

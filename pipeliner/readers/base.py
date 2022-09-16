@@ -1,3 +1,7 @@
+"""
+Base module for readers, contains base reader and default reader.
+"""
+
 from abc import ABCMeta, abstractmethod
 from typing import Any
 
