@@ -10,7 +10,7 @@ import sys
 
 # for local build.
 sys.path.insert(0, os.path.abspath(".."))
-# for rtd hsting build.
+# for rtd hosting build.
 sys.path.insert(0, os.path.abspath("../.."))
 
 
