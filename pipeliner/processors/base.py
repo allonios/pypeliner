@@ -1,3 +1,8 @@
+"""
+Base module for processors that contains base processors class and a
+callback based processors base class.
+"""
+
 from abc import ABCMeta, abstractmethod
 from types import NoneType
 from typing import Any, Callable
@@ -6,6 +11,9 @@ from typing import Any, Callable
 class BaseProcessor(metaclass=ABCMeta):
     """
     Base class for processors.
+
+    Attributes:
+        PROCESSOR_NAME: verbose name for processor.
 
     Args:
         init_state: initial state used by the processor,

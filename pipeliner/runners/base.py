@@ -1,3 +1,6 @@
+"""
+Base runners module, contains base runner and base stream runner.
+"""
 from typing import Any, List
 
 from pipeliner.processors.base import BaseProcessor
