@@ -1,4 +1,4 @@
-﻿pipeliner.examples.process\_image
+pipeliner.examples.process\_image
 =================================
 
 .. automodule:: pipeliner.examples.process_image

@@ -1,4 +1,4 @@
-﻿pipeliner.readers.base.DefaultReader
+pipeliner.readers.base.DefaultReader
 ====================================
 
 .. currentmodule:: pipeliner.readers.base
