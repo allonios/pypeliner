@@ -1,4 +1,4 @@
-﻿pipeliner.readers.base.BaseReader
+pipeliner.readers.base.BaseReader
 =================================
 
 .. currentmodule:: pipeliner.readers.base

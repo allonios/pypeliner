@@ -1,4 +1,4 @@
-﻿pipeliner.readers.bulk\_readers.FileReader
+pipeliner.readers.bulk\_readers.FileReader
 ==========================================
 
 .. currentmodule:: pipeliner.readers.bulk_readers

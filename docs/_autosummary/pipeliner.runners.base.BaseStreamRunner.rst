@@ -1,4 +1,4 @@
-﻿pipeliner.runners.base.BaseStreamRunner
+pipeliner.runners.base.BaseStreamRunner
 =======================================
 
 .. currentmodule:: pipeliner.runners.base

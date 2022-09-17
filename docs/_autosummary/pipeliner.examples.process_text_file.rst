@@ -1,4 +1,4 @@
-﻿pipeliner.examples.process\_text\_file
+pipeliner.examples.process\_text\_file
 ======================================
 
 .. automodule:: pipeliner.examples.process_text_file
