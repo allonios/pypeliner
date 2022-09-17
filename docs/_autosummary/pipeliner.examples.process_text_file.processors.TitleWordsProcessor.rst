@@ -1,4 +1,4 @@
-﻿pipeliner.examples.process\_text\_file.processors.TitleWordsProcessor
+pipeliner.examples.process\_text\_file.processors.TitleWordsProcessor
 =====================================================================
 
 .. currentmodule:: pipeliner.examples.process_text_file.processors

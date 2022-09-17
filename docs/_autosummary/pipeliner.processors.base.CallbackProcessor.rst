@@ -1,4 +1,4 @@
-﻿pipeliner.processors.base.CallbackProcessor
+pipeliner.processors.base.CallbackProcessor
 ===========================================
 
 .. currentmodule:: pipeliner.processors.base

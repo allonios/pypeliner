@@ -1,4 +1,4 @@
-﻿pipeliner.examples.process\_text\_file.processors.RemoveStopWordsProcessor
+pipeliner.examples.process\_text\_file.processors.RemoveStopWordsProcessor
 ==========================================================================
 
 .. currentmodule:: pipeliner.examples.process_text_file.processors
