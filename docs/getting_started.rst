@@ -134,8 +134,8 @@ we'll be using the built in :doc:`BaseRunner <_autosummary/pipeliner.runners.bas
         run_timers=True
     )
 
-result = runner.current_state
-print(result)
+    result = runner.current_state
+    print(result)
 
 | ``processors`` parameter will set the processors of the pipeline and also its order.
 | ``reader`` parameter will set the reader of the pipeline to be the file reader we defined earlier.
