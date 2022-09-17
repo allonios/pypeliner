@@ -1,4 +1,4 @@
-﻿pipeliner.examples.process\_text\_file.processors.RemoveNumbersProcessor
+pipeliner.examples.process\_text\_file.processors.RemoveNumbersProcessor
 ========================================================================
 
 .. currentmodule:: pipeliner.examples.process_text_file.processors

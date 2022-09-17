@@ -12,6 +12,7 @@ class BaseRunner:
     """
     Base class for runners, can be used with bulk readers to run processors in
     a linear pipeline.
+
     Args:
         processors: processors objects to be run by this runner.
         reader: reader object to read the data.
