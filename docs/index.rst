@@ -6,8 +6,6 @@
 Welcome to pipeliner's documentation!
 =====================================
 
-<<<<<<< Updated upstream
-=======
 ********
 Pipliner
 ********
@@ -24,7 +22,6 @@ The main goal for pipeliner is to make processing units as robust as it can be b
 
 
 
->>>>>>> Stashed changes
 .. toctree::
    :maxdepth: 1
    :caption: Table of Contents:
@@ -32,7 +29,3 @@ The main goal for pipeliner is to make processing units as robust as it can be b
    Installation <installation>
    Getting Started <getting_started>
    API Reference <_autosummary/pipeliner>
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
