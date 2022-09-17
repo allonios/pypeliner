@@ -8,12 +8,18 @@
 import os
 import sys
 
+# for local build.
 sys.path.insert(0, os.path.abspath(".."))
+# for rtd hosting build.
+sys.path.insert(0, os.path.abspath("../.."))
 
 
 project = "pipeliner"
 copyright = "2022, Fareck Allony"
 author = "Fareck Allony"
+
+
+autodoc_mock_imports = ["cv2", "numpy"]
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
