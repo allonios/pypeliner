@@ -14,11 +14,9 @@ Pipliner
 
 The main goal for pipeliner is to make processing units as robust as it can be by making it:
 
-- usable outside of the framework environment so you don't need redefine the processor logic when using this logic outside of the pipeline.
-
-- testable.
-
-- easily used in any desired order within the pipeline.
+| - Usable outside of the framework environment so you don't need redefine the processor logic when using this logic outside of the pipeline.
+| - Testable.
+| - Easily used in any desired order within the pipeline.
 
 
 
