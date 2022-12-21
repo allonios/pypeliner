@@ -1,10 +1,35 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "simple-pipeliner"
+version = "0.0.2"
+authors = [
+    { name = "Fareck Allony", email = "fareck.allony.mail@gmail.com" },
+]
+description = "A simple python framework for building data processing pipelines"
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/allonios/pipeliner"
+"Documentation" = "https://simple-pipeliner.readthedocs.io/en/latest/"
+"Bug Tracker" = "https://github.com/allonios/pipeliner/issues"
+
 [tool.black]
 line-length = 79
+
 [tool.isort]
-multi_line_output=3
-include_trailing_comma=true
-force_grid_wrap=0
-combine_as_imports=true
-use_parentheses=true
-line_length=79
-sections=["FUTURE", "STDLIB", "THIRDPARTY", "FIRSTPARTY", "LOCALFOLDER"]
+multi_line_output = 3
+include_trailing_comma = true
+force_grid_wrap = 0
+combine_as_imports = true
+use_parentheses = true
+line_length = 79
+sections = ["FUTURE", "STDLIB", "THIRDPARTY", "FIRSTPARTY", "LOCALFOLDER"]

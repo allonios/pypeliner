@@ -47,3 +47,5 @@ whoosh_index/
 env/
 venv/
 .venv/
+
+dist
