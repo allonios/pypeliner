@@ -20,4 +20,5 @@ pipeliner.readers.bulk\_readers
       :template: custom-class-template.rst
       :nosignatures:
 
+      CSVFileReader
       FileReader

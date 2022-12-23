@@ -1,6 +1,6 @@
 """
 Bulk readers module, defines readers for reading bulk data all at once,
-contains a file reader
+contains a file reader and csv file reader.
 """
 from typing import Dict, List
 
@@ -25,6 +25,19 @@ class FileReader(BaseReader):
 
 
 class CSVFileReader(BaseReader):
+    """
+    A reader to read a csv file.
+
+    Args:
+        file_path: file directory.
+        load_titles_row: read the first line from the file to consider that
+        as the columns names.
+        columns_names: custom column names that will override the csv file
+        existing columns names when load_titles_row is True.
+        delimiter: rows delimiter.
+        detect_numbers: convert string number values to int/float.
+    """
+
     def __init__(
         self,
         file_path: str,
