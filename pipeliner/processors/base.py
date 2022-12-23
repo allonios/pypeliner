@@ -4,7 +4,6 @@ callback based processors base class.
 """
 
 from abc import ABCMeta, abstractmethod
-from types import NoneType
 from typing import Any, Callable
 
 
@@ -27,12 +26,12 @@ class BaseProcessor(metaclass=ABCMeta):
 
     def __call__(self, input_state: Any) -> Any:
         result = self.process(input_state)
-        # if a value is provided by process_state we use that as the new
+        # if a value is provided by the `process` method we use that as the new
         # processed state.
         # the user might forget to store his latest processing results in
         # self.state and just returns it directly,
         # so this should cover that case.
-        if not isinstance(result, NoneType):
+        if result is not None:
             self.state = result
         return self.state
 
@@ -54,7 +53,7 @@ class BaseProcessor(metaclass=ABCMeta):
         Returns:
             processed state.
         """
-        if not isinstance(input_state, NoneType):
+        if input_state is not None:
             self.state = input_state
         return self.state
 

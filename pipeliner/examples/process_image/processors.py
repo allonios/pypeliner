@@ -20,7 +20,7 @@ class ScaleImageProcessor(BaseProcessor):
         self.scale_y = scale_y
 
     def process(self, input_state: Any = None) -> Any:
-        self.state = input_state
+        self.state = super().process(input_state)
         self.state = cv2.resize(
             self.state, dsize=(0, 0), fx=self.scale_x, fy=self.scale_y
         )
@@ -40,7 +40,7 @@ class BlurImageProcessor(BaseProcessor):
         self.sigma_x = sigma_x
 
     def process(self, input_state: Any = None) -> Any:
-        self.state = input_state
+        self.state = super().process(input_state)
         self.state = cv2.GaussianBlur(
             self.state, self.filter_size, self.sigma_x
         )
@@ -61,7 +61,7 @@ class SobelEdgeExtractorProcessors(BaseProcessor):
         self.kernel_size = kernel_size
 
     def process(self, input_state: Any = None) -> Any:
-        self.state = input_state
+        self.state = super().process(input_state)
         self.state = cv2.cvtColor(self.state, cv2.COLOR_BGR2GRAY)
         self.state = cv2.Sobel(
             src=self.state,
@@ -82,7 +82,7 @@ class DilateImageProcessor(BaseProcessor):
             self.kernel = np.ones((5, 5), np.uint8)
 
     def process(self, input_state: Any = None) -> Any:
-        self.state = input_state
+        self.state = super().process(input_state)
         self.state = cv2.dilate(self.state, self.kernel)
 
 
@@ -96,5 +96,5 @@ class ErodeImageProcessor(BaseProcessor):
             self.kernel = np.ones((5, 5), np.uint8)
 
     def process(self, input_state: Any = None) -> Any:
-        self.state = input_state
+        self.state = super().process(input_state)
         self.state = cv2.erode(self.state, self.kernel)

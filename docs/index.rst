@@ -26,4 +26,7 @@ The main goal for pipeliner is to make processing units as robust as it can be b
 
    Installation <installation>
    Getting Started <getting_started>
+   What is Pipeliner <what_is_pipeliner>
+   Best Practices <best_practices>
+   Future Work <future_work>
    API Reference <_autosummary/pipeliner>
