@@ -20,4 +20,5 @@ pipeliner.readers.stream\_readers
       :template: custom-class-template.rst
       :nosignatures:
 
+      CSVFileStreamReader
       FileLinesReader

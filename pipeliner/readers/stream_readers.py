@@ -1,10 +1,11 @@
 """
 Stream readers module, defines readers for reading data from streams, contains
-file lines reader.
+file lines reader and csv file reader.
 """
 from typing import List
 
 from pipeliner.readers.base import BaseReader
+from pipeliner.utils.csv_utils import convert_row_values_to_numbers
 
 
 class FileLinesReader(BaseReader):
@@ -24,6 +25,17 @@ class FileLinesReader(BaseReader):
 
 
 class CSVFileStreamReader(BaseReader):
+    """
+    A reader used to read a stream of rows from a csv file.
+
+    Args:
+        file_path: file directory.
+        load_titles_row: read the first line from the file to consider that
+        as the columns names.
+        delimiter: rows delimiter.
+        detect_numbers: convert string number values to int/float.
+    """
+
     def __init__(
         self,
         file_path: str,
@@ -43,4 +55,10 @@ class CSVFileStreamReader(BaseReader):
                 file_handler.readline()
 
             for line in file_handler.readlines():
-                yield line.replace("\n", "").split(self.delimiter)
+                yield (
+                    convert_row_values_to_numbers(
+                        line.replace("\n", "").split(self.delimiter)
+                    )
+                    if self.detect_numbers
+                    else line.replace("\n", "").split(self.delimiter)
+                )
