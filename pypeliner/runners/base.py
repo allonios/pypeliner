@@ -3,9 +3,9 @@ Base runners module, contains base runner and base stream runner.
 """
 from typing import Any, List
 
-from pipeliner.processors.base import BaseProcessor
-from pipeliner.readers.base import BaseReader
-from pipeliner.utils.decorators import exec_timer
+from pypeliner.processors.base import BaseProcessor
+from pypeliner.readers.base import BaseReader
+from pypeliner.utils.decorators import exec_timer
 
 
 class BaseRunner:

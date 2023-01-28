@@ -4,8 +4,8 @@ contains a file reader and csv file reader.
 """
 from typing import Dict, List
 
-from pipeliner.readers.base import BaseReader
-from pipeliner.utils.csv_utils import convert_row_values_to_numbers
+from pypeliner.readers.base import BaseReader
+from pypeliner.utils.csv_utils import convert_row_values_to_numbers
 
 
 class FileReader(BaseReader):
