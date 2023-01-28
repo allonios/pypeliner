@@ -3,7 +3,7 @@ CSV utils contains utilities to read csv files
 """
 from typing import List, Union
 
-from pipeliner.utils.string_utils import convert_string_to_number
+from pypeliner.utils.string_utils import convert_string_to_number
 
 
 def convert_row_values_to_numbers(

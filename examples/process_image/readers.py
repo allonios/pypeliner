@@ -6,7 +6,7 @@ from typing import Any
 
 import cv2
 
-from pipeliner.readers.base import BaseReader
+from pypeliner.readers.base import BaseReader
 
 
 class ImageReader(BaseReader):

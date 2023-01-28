@@ -1,10 +1,10 @@
 **************************
-What is Pipeliner?
+What is Pypeliner?
 **************************
 
 Any data processing operation consists of 3 main steps: 1- read the data. 2- defining processing operations. 3 running the processing operations.
 
-and that is what pipeliner tries to achieve, an organized and a safe structure to process data and it achieves the previous 3 steps via the 3 main components that it depends on a Reader, Processors and a Runner.
+and that is what pypeliner tries to achieve, an organized and a safe structure to process data and it achieves the previous 3 steps via the 3 main components that it depends on a Reader, Processors and a Runner.
 
 the entire flow is demonstrated on the following chart:
 
@@ -21,13 +21,13 @@ A reader is responsible of initializing and loading the data needed to be proces
 #. Bulk Readers: which handles reading bulk data  all at once,
 #. Stream Readers: which handles reading data from a stream source, like a network or a very large file,
 
-right now pipeliner provides:
+right now pypeliner provides:
 
 * File Reader.
 * CSV Reader.
 * And Base classes that should be inherited from when implementing custom reading in order to work cohesively with the appropriate Runner.
 
-and you are encouraged check the :doc:`API Reference <./api>` for more information on what pipeliner provides.
+and you are encouraged check the :doc:`API Reference <./api>` for more information on what pypeliner provides.
 
 #########
 Processor
@@ -49,5 +49,5 @@ A runner is responsible for receiving data from a Reader and then passing that d
 
 A runner runs processors based on what's needed, for example if data is coming from a stream, then the runner will have to
 accept data from a stream and pass these to the processors and return the result, and then waits for the next batch and
-redo the previous steps (BaseStreamRunner is provided by pipeliner),
+redo the previous steps (BaseStreamRunner is provided by pypeliner),
 or it might just wants to run the processors in a multiprocessing manner (coming soon).
