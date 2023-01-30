@@ -64,7 +64,9 @@ class CallbackProcessor(BaseProcessor):
     callback.
 
     Args:
-        callback: a callback with processing logic.
+        callback: a callback with processing logic, it is mandatory for the
+        callback to have 1 required positional arguments, for any further
+        required positional arguments consider using a partial.
         init_state: processor initial state.
     """
 
