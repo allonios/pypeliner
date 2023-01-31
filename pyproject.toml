@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "simple-pypeliner"
-version = "0.0.3"
+version = "0.0.1"
 authors = [
     { name = "Fareck Allony", email = "fareck.allony.mail@gmail.com" },
 ]
@@ -19,7 +19,7 @@ classifiers = [
 
 [project.urls]
 "Homepage" = "https://github.com/allonios/pypeliner"
-"Documentation" = "https://pypeliner.readthedocs.io/en/latest/"
+"Documentation" = "https://simple-pypeliner.readthedocs.io/en/latest/"
 "Bug Tracker" = "https://github.com/allonios/pypeliner/issues"
 
 [tool.black]

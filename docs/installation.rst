@@ -7,7 +7,9 @@ pypi
 ####
 it can be simply installing using ``pip``::
 
-    pip install pypeliner
+    pip install simple-pypeliner
+
+couldn't be named pypeliner since it conflicts with an other project name 🤦‍♂️.
 
 ########################
 github (for development)
@@ -21,3 +23,5 @@ or by cloning the repo::
    pip install -r requirements/docs.txt
    # for development.
    pip install pre-commit
+   # for tests (pytest).
+   pip install -r requirements/tests.txt

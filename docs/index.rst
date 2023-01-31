@@ -7,7 +7,7 @@ Welcome to pypeliner's documentation!
 =====================================
 
 ********
-Pipliner
+Pypliner
 ********
 
 ``pypeliner`` is a simple python framework for building data processing pipelines.

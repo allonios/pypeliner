@@ -10,7 +10,7 @@ and checkout some examples [here](https://github.com/allonios/pypeliner/tree/mas
 it can be simply installing using `pip`:
 
 ```shell
-pip install pypeliner
+pip install simple-pypeliner
 ```
 
 ## Getting Started
