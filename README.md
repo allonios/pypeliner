@@ -2,7 +2,7 @@
 
 `pypeliner` is a simple python framework for building data processing pipelines.
 
-you can check out the documentation [here](https://pypeliner.readthedocs.io/en/latest/).
+you can check out the documentation [here](https://simple-pypeliner.readthedocs.io/en/latest/).
 
 and checkout some examples [here](https://github.com/allonios/pypeliner/tree/master/examples).
 
