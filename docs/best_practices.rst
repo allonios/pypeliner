@@ -3,7 +3,7 @@ Best Practices
 **************
 
 
-Here are some general tips when implementing anything using pypelines:
+Here are some general tips when implementing anything using pypeliner:
 
 #. When implementing a Reader, Processor or a Runner you are expected to inherit from the base class for these components.
 #. When overriding a method of a some base class make sure you read the method and read its docstring to see if it is what you actually need, you are encouraged to always read the code for the base classes, eventually it is just simple code.

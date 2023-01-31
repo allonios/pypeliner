@@ -1,6 +1,6 @@
 import pytest
 
-from pypelines.readers.bulk_readers import CSVFileReader, FileReader
+from pypeliner.readers.bulk_readers import CSVFileReader, FileReader
 
 
 @pytest.fixture

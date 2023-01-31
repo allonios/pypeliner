@@ -2,7 +2,7 @@ from typing import Any
 
 import pytest
 
-from pypelines.processors.base import BaseProcessor, CallbackProcessor
+from pypeliner.processors.base import BaseProcessor, CallbackProcessor
 
 
 # using a dummy processor since BaseProcessor is an abstract class.

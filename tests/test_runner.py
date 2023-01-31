@@ -2,9 +2,9 @@ from typing import Any
 
 import pytest
 
-from pypelines.processors.base import BaseProcessor
-from pypelines.readers.base import DefaultReader
-from pypelines.runners.base import BaseRunner
+from pypeliner.processors.base import BaseProcessor
+from pypeliner.readers.base import DefaultReader
+from pypeliner.runners.base import BaseRunner
 
 
 class Processor1(BaseProcessor):

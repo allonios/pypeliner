@@ -1,28 +1,28 @@
-# Pypelines
+# Pypeliner
 
-`pypelines` is a simple python framework for building data processing pipelines.
+`pypeliner` is a simple python framework for building data processing pipelines.
 
-you can check out the documentation [here](https://pypelines.readthedocs.io/en/latest/).
+you can check out the documentation [here](https://pypeliner.readthedocs.io/en/latest/).
 
-and checkout some examples [here](https://github.com/allonios/pypelines/tree/master/examples).
+and checkout some examples [here](https://github.com/allonios/pypeliner/tree/master/examples).
 
 ## Installation
 it can be simply installing using `pip`:
 
 ```shell
-pip install pypelines
+pip install simple-pypeliner
 ```
 
 ## Getting Started
 
 Let's say we want to build a pipeline for processing textual data coming from a file.
-we will need 3 main components to achieve this using pypelines.
+we will need 3 main components to achieve this using pypeliner.
 
 ### Reader
 first we will need a reader for reading the file, and it can be defined like the following:
 
 ```python
-from pypelines.readers.base import BaseReader
+from pypeliner.readers.base import BaseReader
 
 class FileReader(BaseReader):
     def __init__(self, file_path: str) -> None:
@@ -129,4 +129,4 @@ print(runner.run())
 
 `run_timers` parameter will print the time consumed by each processor to run.
 
-for more information visit the documentation at [pypelines](https://pypelines.readthedocs.io/en/latest/)
+for more information visit the documentation at [pypeliner](https://pypeliner.readthedocs.io/en/latest/)
