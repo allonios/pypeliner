@@ -1,18 +1,18 @@
-.. pypeliner documentation master file, created by
+.. pypelines documentation master file, created by
    sphinx-quickstart on Sat Sep  3 21:40:37 2022.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to pypeliner's documentation!
+Welcome to pypelines's documentation!
 =====================================
 
 ********
-Pipliner
+Pyplines
 ********
 
-``pypeliner`` is a simple python framework for building data processing pipelines.
+``pypelines`` is a simple python framework for building data processing pipelines.
 
-The main goal for pypeliner is to make processing units as robust as it can be by making it:
+The main goal for pypelines is to make processing units as robust as it can be by making it:
 
 | - Usable outside of the framework environment so you don't need redefine the processor logic when using this logic outside of the pipeline.
 | - Testable.
@@ -26,7 +26,7 @@ The main goal for pypeliner is to make processing units as robust as it can be b
 
    Installation <installation>
    Getting Started <getting_started>
-   What is Pypeliner <what_is_pypeliner>
+   What is Pypelines <what_is_pypelines>
    Best Practices <best_practices>
    Future Work <future_work>
-   API Reference <_autosummary/pypeliner>
+   API Reference <_autosummary/pypelines>

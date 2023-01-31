@@ -5,7 +5,7 @@ Text Processors
 import re
 from typing import Any
 
-from pypeliner.processors.base import BaseProcessor
+from pypelines.processors.base import BaseProcessor
 
 
 class TitleWordsProcessor(BaseProcessor):

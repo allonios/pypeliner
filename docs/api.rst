@@ -6,4 +6,4 @@ API Reference
    :template: custom-module-template.rst
    :recursive:
 
-   pypeliner
+   pypelines

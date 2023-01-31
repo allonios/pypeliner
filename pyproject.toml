@@ -3,7 +3,7 @@ requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "simple-pypeliner"
+name = "pypelines"
 version = "0.0.3"
 authors = [
     { name = "Fareck Allony", email = "fareck.allony.mail@gmail.com" },
@@ -18,9 +18,9 @@ classifiers = [
 ]
 
 [project.urls]
-"Homepage" = "https://github.com/allonios/pypeliner"
-"Documentation" = "https://pypeliner.readthedocs.io/en/latest/"
-"Bug Tracker" = "https://github.com/allonios/pypeliner/issues"
+"Homepage" = "https://github.com/allonios/pypelines"
+"Documentation" = "https://pypelines.readthedocs.io/en/latest/"
+"Bug Tracker" = "https://github.com/allonios/pypelines/issues"
 
 [tool.black]
 line-length = 79
