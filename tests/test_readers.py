@@ -14,7 +14,9 @@ def csv_reader(request):
 
 
 def test_file_reader(file_reader):
-    assert file_reader.read() == "the quick brown fox jumps over the lazy dog."
+    assert file_reader.read() == (
+        "the quick brown fox jumps over the lazy dog.\n"
+    )
 
 
 @pytest.mark.parametrize(
