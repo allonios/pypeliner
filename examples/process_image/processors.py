@@ -8,7 +8,7 @@ import cv2
 import numpy as np
 from numpy import ndarray
 
-from pypeliner.processors.base import BaseProcessor
+from pypelines.processors.base import BaseProcessor
 
 
 class ScaleImageProcessor(BaseProcessor):

@@ -3,7 +3,7 @@ Getting Started
 ***************
 
 | Let's say we want to build a pipeline for processing textual data coming from a file.
-| we will need 3 main components to achieve this using pypeliner.
+| we will need 3 main components to achieve this using pypelines.
 
 .. _reader-reference-label:
 
@@ -15,7 +15,7 @@ first we will need a reader for reading the file, and it can be defined like the
 
 .. code-block::
 
-    from pypeliner.readers.base import BaseReader
+    from pypelines.readers.base import BaseReader
 
     class FileReader(BaseReader):
         def __init__(self, file_path: str) -> None:
@@ -115,7 +115,7 @@ Runner
 the runner is the place where everything comes together, it will use the :ref:`reader-reference-label` to load the file
 and define the running loop for the :ref:`processors-reference-label`
 
-we'll be using the built in :doc:`BaseRunner <_autosummary/pypeliner.runners.base.BaseRunner>`
+we'll be using the built in :doc:`BaseRunner <_autosummary/pypelines.runners.base.BaseRunner>`
 
 .. code-block::
 

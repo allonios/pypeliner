@@ -14,7 +14,7 @@ sys.path.insert(0, os.path.abspath(".."))
 sys.path.insert(0, os.path.abspath("../.."))
 
 
-project = "pypeliner"
+project = "pypelines"
 copyright = "2022, Fareck Allony"
 author = "Fareck Allony"
 
