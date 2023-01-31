@@ -2,7 +2,11 @@
 What is Pypeliner?
 **************************
 
-Any data processing operation consists of 3 main steps: 1- read the data. 2- defining processing operations. 3 running the processing operations.
+Any data processing operation consists of 3 main steps:
+
+#. read the data.
+#. defining processing operations.
+#. running the processing operations.
 
 and that is what pypeliner tries to achieve, an organized and a safe structure to process data and it achieves the previous 3 steps via the 3 main components that it depends on a Reader, Processors and a Runner.
 
@@ -25,7 +29,7 @@ right now pypeliner provides:
 
 * File Reader.
 * CSV Reader.
-* And Base classes that should be inherited from when implementing custom reading in order to work cohesively with the appropriate Runner.
+* And base classes that should be inherited from when implementing custom reading in order to work cohesively with the appropriate Runner.
 
 and you are encouraged check the :doc:`API Reference <./api>` for more information on what pypeliner provides.
 
