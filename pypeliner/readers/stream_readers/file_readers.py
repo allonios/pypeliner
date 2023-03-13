@@ -1,6 +1,6 @@
 """
-Stream readers module, defines readers for reading data from streams, contains
-file lines reader and csv file reader.
+File readers module, defines stream reading for text and csv files
+(line by line).
 """
 from typing import List
 
