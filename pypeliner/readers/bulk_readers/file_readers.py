@@ -1,7 +1,7 @@
 """
-Bulk readers module, defines readers for reading bulk data all at once,
-contains a file reader and csv file reader.
+File readers module, defines bulk reading for regular text and csv files.
 """
+
 from typing import Dict, List
 
 from pypeliner.readers.base import BaseReader
