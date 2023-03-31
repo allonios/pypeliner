@@ -40,18 +40,14 @@ class FingerLandmarksPairsFactory:
         orientation = cls.get_thumb_orientation_after_rotation(
             hand.rotated_landmarks[0], hand.rotated_landmarks[1]
         )
-        if orientation == Orientation.LEFT:
 
-            def thumb_comparator(point1, point2):
-                return point1.x > point2.x
-
-        else:
-
-            def thumb_comparator(point1, point2):
-                return point1.x < point2.x
+        thumb_comparators = {
+            Orientation.LEFT: lambda point1, point2: point1.x > point2.x,
+            Orientation.RIGHT: lambda point1, point2: point1.x < point2.x,
+        }
 
         fingers_landmarks_pairs = {
-            4: {"threshold": 3, "comparator": thumb_comparator},
+            4: {"threshold": 3, "comparator": thumb_comparators[orientation]},
             8: {
                 "threshold": 6,
                 "comparator": lambda point1, point2: point1.y > point2.y,
