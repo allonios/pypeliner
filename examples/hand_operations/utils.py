@@ -36,9 +36,9 @@ class FingerLandmarksPairsFactory:
             return Orientation.RIGHT
 
     @classmethod
-    def get_fingers_landmarks_pairs(cls, hand) -> dict:
+    def get_fingers_landmarks_pairs(cls, landmarks) -> dict:
         orientation = cls.get_thumb_orientation_after_rotation(
-            hand.rotated_landmarks[0], hand.rotated_landmarks[1]
+            landmarks[0], landmarks[1]
         )
 
         thumb_comparators = {
