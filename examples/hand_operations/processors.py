@@ -144,40 +144,47 @@ class HandThumbOrientationProcessor(BaseProcessor):
         return self.state
 
 
-class RaisedFingersProcessor(BaseProcessor):
+class RotateHandProcessor(BaseProcessor):
     def __init__(
-        self,
-        init_state: Any = None,
-        hand_line: tuple = (9, 0),
-        thumb_line: tuple = (0, 2),
+        self, init_state: Any = None, hand_line: tuple = (9, 0)
     ) -> None:
         super().__init__(init_state)
         self.hand_line = hand_line
-        self.thumb_line = thumb_line
 
-    def is_closed_finger(self, landmark_index: int):
+    def process(self, input_state: Any = None) -> Any:
+        self.state = super().process(input_state)
+
+        for hand in self.state.hands:
+            rotation = hand.get_hand_rotation_degrees(
+                self.hand_line, self.state.image.shape
+            )
+            rotated_landmarks = get_rotate_landmarks(
+                hand.landmarks.landmark, radians(rotation - 90)
+            )
+            hand.rotated_landmarks = rotated_landmarks
+
+        return self.state
+
+
+class RaisedFingersProcessor(BaseProcessor):
+    def is_closed_finger(self, landmark_index: int, landmarks):
         fingers_landmarks_pairs = (
-            FingerLandmarksPairsFactory.get_fingers_landmarks_pairs(self)
+            FingerLandmarksPairsFactory.get_fingers_landmarks_pairs(landmarks)
         )
         point1_index = landmark_index
         point2_index = fingers_landmarks_pairs[landmark_index]["threshold"]
         comparator = fingers_landmarks_pairs[landmark_index]["comparator"]
         return comparator(
-            self.rotated_landmarks[point1_index],
-            self.rotated_landmarks[point2_index],
+            landmarks[point1_index],
+            landmarks[point2_index],
         )
 
     def get_raised_fingers(self, hand: HandState):
         raised = []
-        rotation = hand.get_hand_rotation_degrees(
-            self.hand_line, self.state.image.shape
-        )
-        rotated_landmarks = get_rotate_landmarks(
-            hand.landmarks.landmark, radians(rotation - 90)
-        )
-        self.rotated_landmarks = rotated_landmarks
         for finger_id, finger_landmark in FINGERS_INDEXES.items():
-            if not self.is_closed_finger(finger_landmark):
+            if not self.is_closed_finger(
+                finger_landmark, hand.rotated_landmarks
+            ):
                 raised.append(finger_id)
 
         return raised
