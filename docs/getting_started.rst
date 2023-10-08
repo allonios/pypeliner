@@ -11,7 +11,7 @@ Getting Started
 Reader
 ######
 
-first we will need a reader for reading the file, and it can be defined like the following:
+First we will need a reader for reading the file, and it can be defined as the following:
 
 .. code-block::
 
@@ -26,7 +26,7 @@ first we will need a reader for reading the file, and it can be defined like the
                 return file_handler.read()
 
 
-inheriting from ``BaseReader`` makes sure that the ``read`` method is implemented to be used later within the :ref:`runner-reference-label`.
+Inheriting from ``BaseReader`` makes sure that the ``read`` method is implemented to be used later within the :ref:`runner-reference-label`.
 the code basically is reading a file and returning its content as a string.
 
 .. _processors-reference-label:
@@ -35,15 +35,15 @@ the code basically is reading a file and returning its content as a string.
 Processors
 ##########
 
-next we will define our processing logic, lets say we want to make all letters in the text file lower case, then remove
-stop words i.g: but, and, or, etc after that remove numbers.
+Next we will define our processing logic, let's say we want to make all letters in the text file lower case, then remove
+stop words e.g: but, and, or, etc after that remove numbers.
 
 
-to achieve that we will write a processor for each one of these tasks.
+To achieve that we will write a processor for each one of these tasks.
 
-each processor should define its own ``process`` method. a processor will receive the ``state`` it needs to process from the :ref:`runner-reference-label`.
+Each processor should define its own ``process`` method. a processor will receive the ``state`` it needs to process from the :ref:`runner-reference-label`.
 
-if ``input_state`` is passed the that processor will use the ``input_state`` instead of the state passed by the runner,
+If ``input_state`` is passed the that processor will use the ``input_state`` instead of the state passed by the runner,
 this is achieved using the ``super`` call for ``process`` method and passing ``input_state`` there.
 it is recommended to always call ``super`` for the ``process`` method as a best practice.
 
@@ -112,10 +112,10 @@ it is recommended to always call ``super`` for the ``process`` method as a best 
 Runner
 ######
 
-the runner is the place where everything comes together, it will use the :ref:`reader-reference-label` to load the file
+The runner is the place where everything comes together, it will use the :ref:`reader-reference-label` to load the file
 and define the running loop for the :ref:`processors-reference-label`
 
-we'll be using the built in :doc:`BaseRunner <_autosummary/pypeliner.runners.base.BaseRunner>`
+We'll be using the built in :doc:`BaseRunner <_autosummary/pypeliner.runners.base.BaseRunner>`
 
 .. code-block::
 
