@@ -3,3 +3,6 @@ build:
   os: "ubuntu-20.04"
   tools:
     python: "3.10"
+  jobs:
+    pre_system_dependencies:
+      - pip install sphinx-rtd-theme
