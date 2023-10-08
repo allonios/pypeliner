@@ -4,5 +4,5 @@ build:
   tools:
     python: "3.10"
   jobs:
-    pre_system_dependencies:
-      - pip install sphinx-rtd-theme
+    post_create_environment:
+      - python -m pip install sphinx-rtd-theme
