@@ -8,9 +8,9 @@ Any data processing operation consists of 3 main steps:
 #. defining processing operations.
 #. running the processing operations.
 
-and that is what pypeliner tries to achieve, an organized and a safe structure to process data and it achieves the previous 3 steps via the 3 main components that it depends on a Reader, Processors and a Runner.
+And that is what pypeliner tries to achieve, an organized and a safe structure to process data and it achieves the previous 3 steps via the 3 main components that it depends on a Reader, Processors and a Runner.
 
-the entire flow is demonstrated on the following chart:
+The entire flow is demonstrated on the following chart:
 
 .. image:: images/flow_chart.png
    :alt: flow chart
@@ -25,13 +25,13 @@ A reader is responsible of initializing and loading the data needed to be proces
 #. Bulk Readers: which handles reading bulk data  all at once,
 #. Stream Readers: which handles reading data from a stream source, like a network or a very large file,
 
-right now pypeliner provides:
+Right now pypeliner provides:
 
 * File Reader.
 * CSV Reader.
 * And base classes that should be inherited from when implementing custom reading in order to work cohesively with the appropriate Runner.
 
-and you are encouraged check the :doc:`API Reference <./api>` for more information on what pypeliner provides.
+And you are encouraged check the :doc:`API Reference <./api>` for more information on what pypeliner provides.
 
 #########
 Processor

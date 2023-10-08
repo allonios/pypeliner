@@ -7,11 +7,11 @@ Phase 1 - More Built-In Readers
 ###############################
 
 #. FilesStreamReader: to read a list of files as a stream.
-#. JsonFilesStreamReader: to read a list of files as a stream.
+#. JsonFilesStreamReader: to read a list of json files as a stream.
 #. JsonReader: to read json files.
 #. STDInReader (Stream and Bulk): to read from standard input.
 #. URLReader (Stream and Bulk): to read from a URL.
-#. ImageReader (Stream and Bulk): to images from a source.
+#. ImageReader (Stream and Bulk): to read images from a source.
 
 and also enhancing verbose messages.
 
