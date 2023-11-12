@@ -6,6 +6,8 @@ callback based processors base class.
 from abc import ABCMeta, abstractmethod
 from typing import Any, Callable
 
+from pypeliner.exceptions import StateIntegrityError
+
 
 class BaseProcessor(metaclass=ABCMeta):
     """
@@ -15,24 +17,57 @@ class BaseProcessor(metaclass=ABCMeta):
         PROCESSOR_NAME: verbose name for processor.
 
     Args:
-        init_state: initial state used by the processor,
-            usually used when using the processor on its own without a runner.
     """
 
     PROCESSOR_NAME = ""
 
-    def __init__(self, init_state: Any = None) -> None:
-        self.state = init_state
+    def __init__(self) -> None:
+        self.__state = None
 
-    def __call__(self, input_state: Any) -> Any:
-        result = self.process(input_state)
-        # if a value is provided by the `process` method we use that as the new
-        # processed state.
-        # the user might forget to store his latest processing results in
-        # self.state and just returns it directly,
-        # so this should cover that case.
-        if result is not None:
-            self.state = result
+    @property
+    def state(self):
+        return self.__state
+
+    @state.setter
+    def state(self, new_state: Any) -> None:
+        """
+        state setter, implemented to prevent setting/registering a None state.
+        Args:
+            new_state:
+                The new state.
+        Returns:
+            None
+        """
+        if new_state is None:
+            raise StateIntegrityError
+        self.__state = new_state
+
+    def register_state(self, new_state: Any) -> Any:
+        """
+        register_state method is implemented and used just for the sake of
+        explicitly saying "this state is not registered", the setter for state
+        is the one actually being used, the only difference is that
+        register_state will return the new state.
+
+        Args:
+            new_state:
+                The new state.
+
+        Returns:
+            The new state.
+        """
+        self.state = new_state
+        return self.state
+
+    def __call__(self, state: Any) -> Any:
+        # registering the input state.
+        self.register_state(state)
+
+        result = self.process(state)
+
+        # registering the output state.
+        self.register_state(result)
+
         return self.state
 
     def __str__(self) -> str:
@@ -42,20 +77,20 @@ class BaseProcessor(metaclass=ABCMeta):
             return super().__str__()
 
     @abstractmethod
-    def process(self, input_state: Any = None) -> Any:
+    def process(self, state: Any) -> Any:
         """
         process method defines the processing operations for the current
         processor.
+        it is not recommended to be called directly unless the processor is
+        used a standalone unit.
 
         Args:
-            input_state: processor input state.
+            state: processor input state.
 
         Returns:
             processed state.
         """
-        if input_state is not None:
-            self.state = input_state
-        return self.state
+        return state
 
 
 class CallbackProcessor(BaseProcessor):
@@ -70,16 +105,9 @@ class CallbackProcessor(BaseProcessor):
         init_state: processor initial state.
     """
 
-    def __init__(self, callback: Callable, init_state: Any = None) -> None:
-        super().__init__(init_state)
+    def __init__(self, callback: Callable[[Any], Any]) -> None:
+        super().__init__()
         self.callback = callback
 
-    def process(self, input_state: Any = None) -> Any:
-        self.state = self.callback(super().process(input_state))
-        return self.state
-
-    def __str__(self) -> str:
-        if self.PROCESSOR_NAME:
-            return self.PROCESSOR_NAME
-        else:
-            return self.callback.__name__
+    def process(self, state: Any) -> Any:
+        return self.callback(self.state)

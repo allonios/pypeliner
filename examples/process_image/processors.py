@@ -6,6 +6,7 @@ from typing import Any
 
 import cv2
 import numpy as np
+from cv2.cv2 import CV_64F
 from numpy import ndarray
 
 from pypeliner.processors.base import BaseProcessor
@@ -19,12 +20,12 @@ class ScaleImageProcessor(BaseProcessor):
         self.scale_x = scale_x
         self.scale_y = scale_y
 
-    def process(self, input_state: Any = None) -> Any:
-        self.state = super().process(input_state)
-        self.state = cv2.resize(
-            self.state, dsize=(0, 0), fx=self.scale_x, fy=self.scale_y
+    def process(self, state: Any) -> Any:
+        state = super().process(state)
+        state = cv2.resize(
+            state, dsize=(0, 0), fx=self.scale_x, fy=self.scale_y
         )
-        return self.state
+        return state
 
 
 class BlurImageProcessor(BaseProcessor):
@@ -39,11 +40,8 @@ class BlurImageProcessor(BaseProcessor):
         self.filter_size = filter_size
         self.sigma_x = sigma_x
 
-    def process(self, input_state: Any = None) -> Any:
-        self.state = super().process(input_state)
-        self.state = cv2.GaussianBlur(
-            self.state, self.filter_size, self.sigma_x
-        )
+    def process(self, state: Any) -> Any:
+        return cv2.GaussianBlur(state, self.filter_size, self.sigma_x)
 
 
 class SobelEdgeExtractorProcessors(BaseProcessor):
@@ -60,12 +58,11 @@ class SobelEdgeExtractorProcessors(BaseProcessor):
         self.sobel_y = sobel_y
         self.kernel_size = kernel_size
 
-    def process(self, input_state: Any = None) -> Any:
-        self.state = super().process(input_state)
-        self.state = cv2.cvtColor(self.state, cv2.COLOR_BGR2GRAY)
-        self.state = cv2.Sobel(
-            src=self.state,
-            ddepth=cv2.CV_64F,
+    def process(self, state: Any) -> Any:
+        state = cv2.cvtColor(state, cv2.COLOR_BGR2GRAY)
+        return cv2.Sobel(
+            src=state,
+            ddepth=CV_64F,
             dx=self.sobel_x,
             dy=self.sobel_y,
             ksize=self.kernel_size,
@@ -81,9 +78,8 @@ class DilateImageProcessor(BaseProcessor):
         if not kernel:
             self.kernel = np.ones((5, 5), np.uint8)
 
-    def process(self, input_state: Any = None) -> Any:
-        self.state = super().process(input_state)
-        self.state = cv2.dilate(self.state, self.kernel)
+    def process(self, state: Any) -> Any:
+        return cv2.dilate(state, self.kernel)
 
 
 class ErodeImageProcessor(BaseProcessor):
@@ -95,6 +91,5 @@ class ErodeImageProcessor(BaseProcessor):
         if not kernel:
             self.kernel = np.ones((5, 5), np.uint8)
 
-    def process(self, input_state: Any = None) -> Any:
-        self.state = super().process(input_state)
-        self.state = cv2.erode(self.state, self.kernel)
+    def process(self, state: Any) -> Any:
+        return cv2.erode(state, self.kernel)

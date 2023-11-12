@@ -11,15 +11,14 @@ from pypeliner.processors.base import BaseProcessor
 class TitleWordsProcessor(BaseProcessor):
     PROCESSOR_NAME = "Title Words Processor"
 
-    def process(self, input_state: Any = None) -> Any:
-        self.state = super().process(input_state)
-        return self.state.title()
+    def process(self, state: Any) -> Any:
+        return state.title()
 
 
 class RemoveStopWordsProcessor(BaseProcessor):
     PROCESSOR_NAME = "Remove Stop Words Processor"
 
-    def process(self, input_state: Any = None) -> Any:
+    def process(self, state: Any) -> Any:
         stop_words = [
             "the",
             "to",
@@ -41,18 +40,16 @@ class RemoveStopWordsProcessor(BaseProcessor):
             "it",
             "an",
         ]
-        self.state = super().process(input_state)
 
         for stop_word in stop_words:
-            self.state = re.sub(rf"\W+{stop_word}\W+", " ", self.state)
-            self.state = re.sub(rf"\W+{stop_word.title()}\W+", " ", self.state)
+            state = re.sub(rf"\W+{stop_word}\W+", " ", state)
+            state = re.sub(rf"\W+{stop_word.title()}\W+", " ", state)
 
-        return self.state
+        return state
 
 
 class RemoveNumbersProcessor(BaseProcessor):
     PROCESSOR_NAME = "Remove Numbers Processor"
 
-    def process(self, input_state: Any = None) -> Any:
-        self.state = super().process(input_state)
-        return re.sub(r"\d+", "", self.state)
+    def process(self, state: Any) -> Any:
+        return re.sub(r"\d+", "", state)

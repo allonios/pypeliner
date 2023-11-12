@@ -1,16 +1,13 @@
 from math import atan2, degrees
-from typing import List
+from typing import Any, List
 
-from mediapipe.framework.formats.landmark_pb2 import NormalizedLandmarkList
 from numpy import ndarray
 
 from examples.hand_operations.utils import Orientation
 
 
 class HandState:
-    def __init__(
-        self, id: int, landmarks: NormalizedLandmarkList, hand_type: str
-    ) -> None:
+    def __init__(self, id: int, landmarks: Any, hand_type: str) -> None:
         self.id = id
         self.landmarks = landmarks
         self.rotated_landmarks = None

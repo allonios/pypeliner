@@ -3,12 +3,12 @@ Image reader module, defines stream reading for images.
 """
 from typing import Any
 
-from pypeliner.exceptions import MissingDependency
+from pypeliner.exceptions import MissingDependencyError
 
 try:
     import cv2
 except ImportError:
-    raise MissingDependency(
+    raise MissingDependencyError(
         "Image readers requires opencv-contrib-python==4.5.5.64 to be "
         "installed\nrun pip install opencv-contrib-python==4.5.5.64 to fix."
     )
