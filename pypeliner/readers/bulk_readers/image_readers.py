@@ -1,14 +1,13 @@
-from pypeliner.exceptions import MissingDependency
+from pypeliner.exceptions import MissingDependencyError
 from pypeliner.readers.bulk_readers.file_readers import FileReader
 
 try:
+    # if open-cv is installed then numpy is too since it is a requirement.
     import cv2
-    # if open-cv is installed then numpy is too since it is a
-    # requirement.
     import numpy as np
     from numpy import ndarray
 except ImportError:
-    raise MissingDependency(
+    raise MissingDependencyError(
         "Image readers requires opencv-contrib-python==4.5.5.64 to be "
         "installed\nrun pip install opencv-contrib-python==4.5.5.64 "
         "to fix."

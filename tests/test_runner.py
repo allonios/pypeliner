@@ -8,20 +8,17 @@ from pypeliner.runners.base import BaseRunner
 
 
 class Processor1(BaseProcessor):
-    def process(self, input_state: Any = None) -> Any:
-        super().process(input_state)
+    def process(self, state: Any) -> Any:
         return self.state
 
 
 class Processor2(BaseProcessor):
-    def process(self, input_state: Any = None) -> Any:
-        super().process(input_state)
+    def process(self, state: Any) -> Any:
         return self.state * 2
 
 
 class Processor3(BaseProcessor):
-    def process(self, input_state: Any = None) -> Any:
-        super().process(input_state)
+    def process(self, state: Any) -> Any:
         return self.state
 
 
