@@ -43,8 +43,8 @@ To achieve that we will write a processor for each one of these tasks.
 
 Each processor should define its own ``process`` method. a processor will receive the ``state`` it needs to process from the :ref:`runner-reference-label`.
 
-If ``input_state`` is passed the that processor will use the ``input_state`` instead of the state passed by the runner,
-this is achieved using the ``super`` call for ``process`` method and passing ``input_state`` there.
+If ``state`` is passed the that processor will use the ``state`` instead of the state passed by the runner,
+this is achieved using the ``super`` call for ``process`` method and passing ``state`` there.
 it is recommended to always call ``super`` for the ``process`` method as a best practice.
 
 ``PROCESSOR_NAME`` is a verbose name for a processor.
@@ -56,11 +56,10 @@ it is recommended to always call ``super`` for the ``process`` method as a best 
 .. code-block::
 
     class LowerCaseProcessor(BaseProcessor):
-    PROCESSOR_NAME = "Lower Case Processor"
+        PROCESSOR_NAME = "Lower Case Processor"
 
-    def process(self, input_state: Any = None) -> Any:
-        self.state = super().process(input_state)
-        return self.state.lower()
+        def process(self, state: Any = None) -> Any:
+            return state.lower()
 
 
 
@@ -71,23 +70,29 @@ it is recommended to always call ``super`` for the ``process`` method as a best 
 .. code-block::
 
     class RemoveStopWordsProcessor(BaseProcessor):
-    PROCESSOR_NAME = "Remove Stop Words Processor"
+        PROCESSOR_NAME = "Remove Stop Words Processor"
 
-    def process(self, input_state: Any = None) -> Any:
-        stop_words = [
-            "the", "to", "and", "a",
-            "in", "it", "is", "am,
-            "I", "that", "had", "on",
-            "for", "be", "were", "was",
-            "of", "or", "it", "an",
-        ]
-        self.state = super().process(input_state)
+        def process(self, state: Any = None) -> Any:
+            stop_words = [
+                "the", "to", "and", "a",
+                "in", "it", "is", "am",
+                "I", "that", "had", "on",
+                "for", "be", "were", "was",
+                "of", "or", "it", "an",
+            ]
 
-        for stop_word in stop_words:
-            self.state = re.sub(rf"\W+{stop_word}\W+", " ", self.state)
-            self.state = re.sub(rf"\W+{stop_word.title()}\W+", " ", self.state)
+            result = ""
 
-        return self.state
+            for stop_word in stop_words:
+                result = re.sub(
+                    rf"\W+{stop_word.title()}\W+", " ",
+                    re.sub(
+                        rf"\W+{stop_word}\W+", " ",
+                        state
+                    )
+                )
+
+            return result
 
 
 
@@ -99,11 +104,10 @@ it is recommended to always call ``super`` for the ``process`` method as a best 
 .. code-block::
 
     class RemoveNumbersProcessor(BaseProcessor):
-    PROCESSOR_NAME = "Remove Numbers Processor"
+        PROCESSOR_NAME = "Remove Numbers Processor"
 
-    def process(self, input_state: Any = None) -> Any:
-        self.state = super().process(input_state)
-        return re.sub(r"\d+", "", self.state)
+        def process(self, state: Any = None) -> Any:
+            return re.sub(r"\d+", "", state)
 
 
 .. _runner-reference-label:

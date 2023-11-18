@@ -13,12 +13,18 @@ pypeliner.readers.stream\_readers
 
 
 
-   .. rubric:: Classes
 
-   .. autosummary::
-      :toctree:
-      :template: custom-class-template.rst
-      :nosignatures:
 
-      CSVFileStreamReader
-      FileLinesReader
+
+
+
+
+
+
+.. autosummary::
+   :toctree:
+   :template: custom-module-template.rst
+   :recursive:
+
+   pypeliner.readers.stream_readers.file_readers
+   pypeliner.readers.stream_readers.image_readers
