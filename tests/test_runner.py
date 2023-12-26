@@ -9,17 +9,17 @@ from pypeliner.runners.base import BaseRunner
 
 class Processor1(BaseProcessor):
     def process(self, state: Any) -> Any:
-        return self.state
+        return state
 
 
 class Processor2(BaseProcessor):
     def process(self, state: Any) -> Any:
-        return self.state * 2
+        return state * 2
 
 
 class Processor3(BaseProcessor):
     def process(self, state: Any) -> Any:
-        return self.state
+        return state
 
 
 @pytest.fixture

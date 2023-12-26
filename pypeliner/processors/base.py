@@ -6,8 +6,6 @@ callback based processors base class.
 from abc import ABCMeta, abstractmethod
 from typing import Any, Callable
 
-from pypeliner.exceptions import StateIntegrityError
-
 
 class BaseProcessor(metaclass=ABCMeta):
     """
@@ -15,60 +13,12 @@ class BaseProcessor(metaclass=ABCMeta):
 
     Attributes:
         PROCESSOR_NAME: verbose name for processor.
-
-    Args:
     """
 
     PROCESSOR_NAME = ""
 
-    def __init__(self) -> None:
-        self.__state = None
-
-    @property
-    def state(self):
-        return self.__state
-
-    @state.setter
-    def state(self, new_state: Any) -> None:
-        """
-        state setter, implemented to prevent setting/registering a None state.
-        Args:
-            new_state:
-                The new state.
-        Returns:
-            None
-        """
-        if new_state is None:
-            raise StateIntegrityError
-        self.__state = new_state
-
-    def register_state(self, new_state: Any) -> Any:
-        """
-        register_state method is implemented and used just for the sake of
-        explicitly saying "this state is not registered", the setter for state
-        is the one actually being used, the only difference is that
-        register_state will return the new state.
-
-        Args:
-            new_state:
-                The new state.
-
-        Returns:
-            The new state.
-        """
-        self.state = new_state
-        return self.state
-
     def __call__(self, state: Any) -> Any:
-        # registering the input state.
-        self.register_state(state)
-
-        result = self.process(state)
-
-        # registering the output state.
-        self.register_state(result)
-
-        return self.state
+        return self.process(state)
 
     def __str__(self) -> str:
         if self.PROCESSOR_NAME:
@@ -110,4 +60,4 @@ class CallbackProcessor(BaseProcessor):
         self.callback = callback
 
     def process(self, state: Any) -> Any:
-        return self.callback(self.state)
+        return self.callback(state)

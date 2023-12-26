@@ -22,4 +22,5 @@ pypeliner.exceptions
    .. autosummary::
       :toctree:
 
-      MissingDependency
+      MissingDependencyError
+      StateIntegrityError
