@@ -1,4 +1,4 @@
-pypeliner.processors.base.BaseProcessor
+﻿pypeliner.processors.base.BaseProcessor
 =======================================
 
 .. currentmodule:: pypeliner.processors.base
@@ -7,12 +7,3 @@ pypeliner.processors.base.BaseProcessor
    :members:
    :show-inheritance:
    :inherited-members:
-
-
-
-   .. rubric:: Methods
-
-   .. autosummary::
-      :nosignatures:
-
-      ~BaseProcessor.process

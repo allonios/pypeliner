@@ -1,4 +1,4 @@
-pypeliner.runners.base.BaseRunner
+﻿pypeliner.runners.base.BaseRunner
 =================================
 
 .. currentmodule:: pypeliner.runners.base
@@ -7,13 +7,3 @@ pypeliner.runners.base.BaseRunner
    :members:
    :show-inheritance:
    :inherited-members:
-
-
-
-   .. rubric:: Methods
-
-   .. autosummary::
-      :nosignatures:
-
-      ~BaseRunner.run
-      ~BaseRunner.run_processors_loop

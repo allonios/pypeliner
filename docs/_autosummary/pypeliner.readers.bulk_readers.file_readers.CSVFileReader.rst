@@ -1,4 +1,4 @@
-pypeliner.readers.bulk\_readers.file\_readers.CSVFileReader
+﻿pypeliner.readers.bulk\_readers.file\_readers.CSVFileReader
 ===========================================================
 
 .. currentmodule:: pypeliner.readers.bulk_readers.file_readers
@@ -7,12 +7,3 @@ pypeliner.readers.bulk\_readers.file\_readers.CSVFileReader
    :members:
    :show-inheritance:
    :inherited-members:
-
-
-
-   .. rubric:: Methods
-
-   .. autosummary::
-      :nosignatures:
-
-      ~CSVFileReader.read

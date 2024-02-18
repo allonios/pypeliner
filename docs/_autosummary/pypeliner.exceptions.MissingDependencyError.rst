@@ -1,6 +1,6 @@
-pypeliner.exceptions.MissingDependencyError
+﻿pypeliner.exceptions.MissingDependencyError
 ===========================================
 
 .. currentmodule:: pypeliner.exceptions
 
-.. autoexception:: MissingDependencyError
+.. autodata:: MissingDependencyError

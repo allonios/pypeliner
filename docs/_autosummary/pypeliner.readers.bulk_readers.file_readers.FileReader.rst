@@ -1,4 +1,4 @@
-pypeliner.readers.bulk\_readers.file\_readers.FileReader
+﻿pypeliner.readers.bulk\_readers.file\_readers.FileReader
 ========================================================
 
 .. currentmodule:: pypeliner.readers.bulk_readers.file_readers
@@ -7,12 +7,3 @@ pypeliner.readers.bulk\_readers.file\_readers.FileReader
    :members:
    :show-inheritance:
    :inherited-members:
-
-
-
-   .. rubric:: Methods
-
-   .. autosummary::
-      :nosignatures:
-
-      ~FileReader.read
