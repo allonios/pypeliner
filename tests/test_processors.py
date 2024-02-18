@@ -8,7 +8,7 @@ from pypeliner.processors.base import BaseProcessor, CallbackProcessor
 # using a dummy processor since BaseProcessor is an abstract class.
 class DummyProcessor(BaseProcessor):
     def process(self, state: Any) -> Any:
-        return super().process(state)
+        return state
 
 
 @pytest.fixture

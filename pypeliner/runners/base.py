@@ -2,7 +2,7 @@
 Base runners module, contains base runner and base stream runner.
 """
 from copy import deepcopy
-from typing import Any, List
+from typing import Any, List, Optional
 
 from pypeliner.processors.base import BaseProcessor
 from pypeliner.readers.base import BaseReader
@@ -25,11 +25,13 @@ class BaseRunner:
         self,
         processors: List[BaseProcessor],
         reader: BaseReader,
-        configuration: RunnerConfiguration,
+        configuration: Optional[RunnerConfiguration] = None,
     ) -> None:
         self.processors = processors
         self.reader = reader
-        self.configuration = configuration
+        self.configuration = (
+            configuration if configuration else RunnerConfiguration()
+        )
 
     def decorate_processor(self, processor: BaseProcessor) -> BaseProcessor:
         if self.configuration.run_timers:
