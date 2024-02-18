@@ -1,4 +1,4 @@
-pypeliner.readers.bulk\_readers.image\_readers.VideoFileReader
+﻿pypeliner.readers.bulk\_readers.image\_readers.VideoFileReader
 ==============================================================
 
 .. currentmodule:: pypeliner.readers.bulk_readers.image_readers
@@ -7,12 +7,3 @@ pypeliner.readers.bulk\_readers.image\_readers.VideoFileReader
    :members:
    :show-inheritance:
    :inherited-members:
-
-
-
-   .. rubric:: Methods
-
-   .. autosummary::
-      :nosignatures:
-
-      ~VideoFileReader.read

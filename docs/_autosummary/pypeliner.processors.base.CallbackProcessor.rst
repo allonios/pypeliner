@@ -1,4 +1,4 @@
-pypeliner.processors.base.CallbackProcessor
+﻿pypeliner.processors.base.CallbackProcessor
 ===========================================
 
 .. currentmodule:: pypeliner.processors.base
@@ -7,12 +7,3 @@ pypeliner.processors.base.CallbackProcessor
    :members:
    :show-inheritance:
    :inherited-members:
-
-
-
-   .. rubric:: Methods
-
-   .. autosummary::
-      :nosignatures:
-
-      ~CallbackProcessor.process

@@ -1,10 +1,12 @@
 """
 Base runners module, contains base runner and base stream runner.
 """
-from typing import Any, List
+from copy import deepcopy
+from typing import Any, List, Optional
 
 from pypeliner.processors.base import BaseProcessor
 from pypeliner.readers.base import BaseReader
+from pypeliner.runner_configuration import RunnerConfiguration
 from pypeliner.utils.decorators import exec_timer
 
 
@@ -16,49 +18,95 @@ class BaseRunner:
     Args:
         processors: processors objects to be run by this runner.
         reader: reader object to read the data.
-        verbose: output running status on terminal.
-        run_timers: print the timing for each processor.
-        timers_decimal_places: when run_timers is True,
-            it will specify the number of decimal points for the measured time,
-            if run_timers is False and this parameter is specified
-            it will have no effect.
+        configuration: configuration object to be used.
     """
 
     def __init__(
         self,
         processors: List[BaseProcessor],
         reader: BaseReader,
-        verbose: bool = False,
-        run_timers: bool = False,
-        timers_decimal_places: int = 3,
+        configuration: Optional[RunnerConfiguration] = None,
     ) -> None:
         self.processors = processors
         self.reader = reader
-        self.verbose = verbose
-        self.run_timers = run_timers
-        self.timers_decimal_places = timers_decimal_places
+        self.configuration = (
+            configuration if configuration else RunnerConfiguration()
+        )
 
-    def run_processors_loop(self) -> None:
+    def decorate_processor(self, processor: BaseProcessor) -> BaseProcessor:
+        if self.configuration.run_timers:
+            named_timer_decorator = exec_timer(
+                str(processor), self.configuration.timers_decimal_places
+            )
+            timed_processor_callback = named_timer_decorator(processor)
+            return timed_processor_callback
+
+        return processor
+
+    def display_verbose_message(self, message: str) -> str:
+        """
+        Args method that will print a verbose message.
+        Args:
+            message: The verbose message to be displayed.
+
+        Returns:
+            None
+        """
+        if not self.configuration.verbose:
+            return ""
+
+        return message
+
+    def run_hooks(self, state, processors: List[BaseProcessor]) -> Any:
+        if not processors:
+            return state
+
+        for processor in processors:
+            # print preprocess hook verbose message.
+            self.display_verbose_message(f"Running hook: {processor}")
+
+            decorated_processor = self.decorate_processor(processor)
+            # run the decorated processor.
+            state = decorated_processor(state)
+
+            # print postprocess hook verbose message.
+            self.display_verbose_message(f"Finished hook: {processor}")
+
+        return state
+
+    def run_processors_loop(self, initial_state: Any) -> None:
         """
         A method defines the loop for running the processors in a linear
         manner.
 
         Returns:
-            None.
+            Processed state.
         """
+
+        # deepcopy the state if needed.
+        if self.configuration.deep_copy_state:
+            state = deepcopy(initial_state)
+        else:
+            state = initial_state
+
         for processor in self.processors:
-            if self.verbose:
-                print(f"Running: {processor}")
-            if self.run_timers:
-                named_timer_decorator = exec_timer(
-                    str(processor), self.timers_decimal_places
-                )
-                timed_processor_callback = named_timer_decorator(processor)
-                self.current_state = timed_processor_callback(
-                    self.current_state
-                )
-            else:
-                self.current_state = processor(self.current_state)
+            # run preprocessing hooks.
+            state = self.run_hooks(state, self.configuration.pre_processors)
+
+            # print preprocess verbose message.
+            self.display_verbose_message(f"Running: {processor}")
+
+            decorated_processor = self.decorate_processor(processor)
+            # run the decorated processor.
+            state = decorated_processor(state)
+
+            # print postprocess verbose message.
+            self.display_verbose_message(f"Finished: {processor}")
+
+            # run postprocessing hooks.
+            state = self.run_hooks(state, self.configuration.post_processors)
+
+        return state
 
     def run(self):
         """
@@ -67,9 +115,13 @@ class BaseRunner:
         Returns:
             processed state.
         """
-        self.current_state = self.reader.read()
-        self.run_processors_loop()
-        return self.current_state
+        initial_state = self.reader.read()
+        # post process the initial state, we can't do any preprocessing since
+        # we still don't have anything yet.
+        initial_state = self.run_hooks(
+            initial_state, self.configuration.post_processors
+        )
+        return self.run_processors_loop(initial_state)
 
 
 class BaseStreamRunner(BaseRunner):
@@ -87,6 +139,4 @@ class BaseStreamRunner(BaseRunner):
             processed state.
         """
         for updated_state in self.reader.read():
-            self.current_state = updated_state
-            self.run_processors_loop()
-            yield self.current_state
+            yield self.run_processors_loop(updated_state)

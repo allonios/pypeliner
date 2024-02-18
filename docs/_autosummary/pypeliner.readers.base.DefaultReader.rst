@@ -1,4 +1,4 @@
-pypeliner.readers.base.DefaultReader
+﻿pypeliner.readers.base.DefaultReader
 ====================================
 
 .. currentmodule:: pypeliner.readers.base
@@ -7,12 +7,3 @@ pypeliner.readers.base.DefaultReader
    :members:
    :show-inheritance:
    :inherited-members:
-
-
-
-   .. rubric:: Methods
-
-   .. autosummary::
-      :nosignatures:
-
-      ~DefaultReader.read

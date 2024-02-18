@@ -1,4 +1,4 @@
-pypeliner.readers.base.BaseReader
+﻿pypeliner.readers.base.BaseReader
 =================================
 
 .. currentmodule:: pypeliner.readers.base
@@ -7,12 +7,3 @@ pypeliner.readers.base.BaseReader
    :members:
    :show-inheritance:
    :inherited-members:
-
-
-
-   .. rubric:: Methods
-
-   .. autosummary::
-      :nosignatures:
-
-      ~BaseReader.read

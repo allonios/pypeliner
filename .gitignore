@@ -49,3 +49,4 @@ venv/
 .venv/
 
 dist
+/main.py
