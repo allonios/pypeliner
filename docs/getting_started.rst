@@ -134,13 +134,17 @@ We'll be using the built in :doc:`BaseRunner <_autosummary/pypeliner.runners.bas
         reader=FileReader(
             file_path="test.txt"
         ),
-        verbose=True,
-        run_timers=True
+        configuration=RunnerConfiguration(
+            post_processors=[],
+            post_processors=[],
+            verbose=True,
+            run_timers=True
+        )
     )
 
     print(runner.run())
 
 | ``processors`` parameter will set the processors of the pipeline and also its order.
 | ``reader`` parameter will set the reader of the pipeline to be the file reader we defined earlier.
-| ``verbose`` parameter will print the current processor that is running.
-| ``run_timers`` parameter will print the time consumed by each processor to run.
+| ``configuration`` parameter will set the configuration for the runner.
+| ``verbose`` will print the current processor that is running and ``run_timers`` will print the time consumed by each processor to run and you can also set ``pre-processors`` and ``post-processors`` that will run before and after each processor.
