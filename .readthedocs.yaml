@@ -5,4 +5,4 @@ build:
     python: "3.10"
   jobs:
     post_create_environment:
-      - python -m pip install sphinx-rtd-theme
+      - python -m pip install -r requirements/docs.txt
