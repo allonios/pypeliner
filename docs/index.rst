@@ -29,4 +29,3 @@ The main goal for pypeliner is to make processing units as robust as it can be b
    What is Pypeliner <what_is_pypeliner>
    Best Practices <best_practices>
    Future Work <future_work>
-   API Reference <_autosummary/pypeliner>
