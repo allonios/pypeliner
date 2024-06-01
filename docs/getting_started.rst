@@ -81,7 +81,7 @@ it is recommended to always call ``super`` for the ``process`` method as a best 
                 "of", "or", "it", "an",
             ]
 
-            result = ""
+            result = state
 
             for stop_word in stop_words:
                 result = re.sub(

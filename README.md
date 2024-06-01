@@ -73,7 +73,7 @@ class RemoveStopWordsProcessor(BaseProcessor):
             "of", "or", "it", "an",
         ]
 
-        result = ""
+        result = state
 
         for stop_word in stop_words:
             result = re.sub(

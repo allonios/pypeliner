@@ -9,15 +9,13 @@ import os
 import sys
 
 # for local build.
-sys.path.insert(0, os.path.abspath(".."))
+# sys.path.insert(0, os.path.abspath(".."))
 # for rtd hosting build.
 sys.path.insert(0, os.path.abspath("../.."))
 
-
 project = "pypeliner"
-copyright = "2023, Fareck Allony"
+copyright = "2024, Fareck Allony"
 author = "Fareck Allony"
-
 
 autodoc_mock_imports = ["cv2", "numpy", "pypeliner"]
 
@@ -25,16 +23,18 @@ autodoc_mock_imports = ["cv2", "numpy", "pypeliner"]
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
 extensions = [
-    "sphinx.ext.autodoc",
-    "sphinx.ext.autosummary",
     "sphinx_rtd_theme",
-    "sphinx.ext.napoleon",
-    "sphinx.ext.intersphinx",
+    "sphinx_copybutton",
+    "autoapi.extension",
 ]
+
+autoapi_dirs = ["../pypeliner"]
+
+autosummary_generate = True
+autodoc_member_order = "bysource"
 
 templates_path = ["_templates"]
 exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
-
 
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output

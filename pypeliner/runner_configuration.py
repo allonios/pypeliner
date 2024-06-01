@@ -1,3 +1,7 @@
+"""
+Runner configuration module contains runner configuration modeling.
+"""
+
 from dataclasses import dataclass
 from typing import List, Optional
 

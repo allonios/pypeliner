@@ -1,4 +1,0 @@
-﻿pypeliner
-=========
-
-.. automodule:: pypeliner
